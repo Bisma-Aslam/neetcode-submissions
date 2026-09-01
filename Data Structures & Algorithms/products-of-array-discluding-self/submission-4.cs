@@ -1,0 +1,17 @@
+public class Solution{
+    public int[] ProductExceptSelf(int[] nums){
+        int n=nums.Length;
+        int[] res=new int[n];
+        int prefix=1;
+        for(int i=0;i<n;i++){
+            res[i]=prefix;
+            prefix*=nums[i];
+        }
+        int suffix=1;
+        for(int j=n-1;j>=0;j--){
+            res[j]*=suffix;
+            suffix*=nums[j];
+        }
+        return res;
+    }
+}
